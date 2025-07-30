@@ -1,0 +1,15 @@
+node_modules/
+.env
+.DS_Store
+uploads/
+package-lock.json
+*.log
+postman_collections/
+tests/
+*.sqlite
+*.bak
+*.tmp
+coverage/
+dist/
+__pycache__/
+*.pyc
