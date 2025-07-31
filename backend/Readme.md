@@ -46,12 +46,12 @@ This will run the script and create the table and indexes in your `kelp_engine` 
    ```
 
 
-## Environment Variables
+## 3 .Environment Variables
 
 - `DATABASE_URL`: PostgreSQL connection string
 - `PORT`: Server port (default: 3000)
 
-### Postman Collection
+### 4 . Postman Collection
 
 ##to test all the api just download the postman collection from the repo and import it into your postman web or app and you can test all the api's
 
