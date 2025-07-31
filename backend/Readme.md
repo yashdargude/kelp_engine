@@ -1,6 +1,6 @@
-# ArchaeoData Inc. Backend
+# Kelp-Engine Inc. Backend
 
-A robust Node.js backend for ArchaeoData Inc., using PostgreSQL and Express, following clean architecture and OOP principles. Supports event ingestion, timeline queries, event search, and advanced insights.
+A robust Node.js backend for Kelp-Engine Inc., using PostgreSQL and Express, following clean architecture and OOP principles. Supports event ingestion, timeline queries, event search, and advanced insights.
 
 ## Table of Contents
 
