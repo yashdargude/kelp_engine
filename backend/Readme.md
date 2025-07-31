@@ -44,15 +44,16 @@ This will run the script and create the table and indexes in your `kelp_engine` 
    DATABASE_URL=postgresql://<user>:<password>@localhost:5432/kelp_engine
    PORT=3000
    ```
-4. Start the backend:
-   ```zsh
-   ./start-backend.sh
-   ```
+
 
 ## Environment Variables
 
 - `DATABASE_URL`: PostgreSQL connection string
 - `PORT`: Server port (default: 3000)
+
+  ## to test all the api just download the postman collection from the repo and import it into your postman web or app and you can test all the api's
+
+- kelp_engine.postman_collection.json
 
 ## API Documentation
 
