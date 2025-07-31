@@ -4,7 +4,7 @@ node_modules/
 uploads/
 package-lock.json
 *.log
-postman_collections/
+
 tests/
 *.sqlite
 *.bak
