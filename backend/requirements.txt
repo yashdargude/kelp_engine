@@ -1,7 +1,0 @@
-express
-pg
-multer
-csv-parse
-uuid
-cors
-dotenv

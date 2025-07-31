@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useRef } from "react";
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+
 export default function APIsExplorer() {
   // State for each API response
   const [ingestRes, setIngestRes] = useState<any>(null);
@@ -76,7 +78,7 @@ export default function APIsExplorer() {
     if (!file) return;
     const formData = new FormData();
     formData.append("file", file);
-    const res = await fetch("http://localhost:3001/api/events/ingest", {
+    const res = await fetch(`${API_BASE_URL}/api/events/ingest`, {
       method: "POST",
       body: formData,
     });
@@ -88,16 +90,14 @@ export default function APIsExplorer() {
   const handleStatus = async () => {
     if (!jobId) return;
     const res = await fetch(
-      `http://localhost:3001/api/events/ingestion-status/${jobId}`
+      `${API_BASE_URL}/api/events/ingestion-status/${jobId}`
     );
     setStatusRes(await res.json());
   };
 
   const handleTimeline = async () => {
     if (!rootEventId) return;
-    const res = await fetch(
-      `http://localhost:3001/api/timeline/${rootEventId}`
-    );
+    const res = await fetch(`${API_BASE_URL}/api/timeline/${rootEventId}`);
     setTimelineRes(await res.json());
   };
 
@@ -107,9 +107,7 @@ export default function APIsExplorer() {
       page: String(searchParams.page),
       limit: String(searchParams.limit),
     });
-    const res = await fetch(
-      `http://localhost:3001/api/events/search?${params}`
-    );
+    const res = await fetch(`${API_BASE_URL}/api/events/search?${params}`);
     setSearchRes(await res.json());
   };
 
@@ -119,7 +117,7 @@ export default function APIsExplorer() {
       endDate: overlapParams.endDate,
     });
     const res = await fetch(
-      `http://localhost:3001/api/insights/overlapping-events?${params}`
+      `${API_BASE_URL}/api/insights/overlapping-events?${params}`
     );
     setOverlapRes(await res.json());
   };
@@ -130,7 +128,7 @@ export default function APIsExplorer() {
       endDate: gapParams.endDate,
     });
     const res = await fetch(
-      `http://localhost:3001/api/insights/temporal-gaps?${params}`
+      `${API_BASE_URL}/api/insights/temporal-gaps?${params}`
     );
     setGapRes(await res.json());
   };
@@ -141,7 +139,7 @@ export default function APIsExplorer() {
       targetEventId: influenceParams.toEventId,
     });
     const res = await fetch(
-      `http://localhost:3001/api/insights/event-influence?${params}`
+      `${API_BASE_URL}/api/insights/event-influence?${params}`
     );
     setInfluenceRes(await res.json());
   };
@@ -279,7 +277,10 @@ export default function APIsExplorer() {
               type="number"
               value={searchParams.limit}
               onChange={(e) =>
-                setSearchParams((s) => ({ ...s, limit: Number(e.target.value) }))
+                setSearchParams((s) => ({
+                  ...s,
+                  limit: Number(e.target.value),
+                }))
               }
               placeholder="Limit"
               className="text-cyan-200 bg-gray-800 px-3 py-2 rounded focus:outline-cyan-400 w-24"
@@ -302,7 +303,9 @@ export default function APIsExplorer() {
         </section>
         {/* Insights */}
         <section className="bg-gray-900 p-8 rounded-2xl shadow-2xl border border-cyan-700">
-          <h2 className="text-2xl font-semibold mb-6 text-cyan-300">Insights</h2>
+          <h2 className="text-2xl font-semibold mb-6 text-cyan-300">
+            Insights
+          </h2>
           <div className="mb-8 pb-4 border-b border-cyan-700">
             <h3 className="font-bold text-cyan-400 mb-2">Overlapping Events</h3>
             <div className="flex flex-wrap items-center gap-4 mb-2">
@@ -408,7 +411,10 @@ export default function APIsExplorer() {
               <select
                 value={influenceParams.fromEventId}
                 onChange={(e) =>
-                  setInfluenceParams((s) => ({ ...s, fromEventId: e.target.value }))
+                  setInfluenceParams((s) => ({
+                    ...s,
+                    fromEventId: e.target.value,
+                  }))
                 }
                 className="text-cyan-200 bg-gray-800 px-3 py-2 rounded focus:outline-cyan-400"
               >
@@ -423,7 +429,10 @@ export default function APIsExplorer() {
               <select
                 value={influenceParams.toEventId}
                 onChange={(e) =>
-                  setInfluenceParams((s) => ({ ...s, toEventId: e.target.value }))
+                  setInfluenceParams((s) => ({
+                    ...s,
+                    toEventId: e.target.value,
+                  }))
                 }
                 className="text-cyan-200 bg-gray-800 px-3 py-2 rounded focus:outline-cyan-400"
               >

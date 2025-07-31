@@ -18,7 +18,6 @@ import {
   DialogTrigger,
   DialogClose,
 } from "./ui/dialog";
-import useAuth from "@/hooks/useAuth";
 import React from "react";
 import UserProfileDropdown from "./UserProfileBox";
 import { SparklesCore } from "./ui/sparkles";
@@ -53,8 +52,6 @@ export default function StatsTable() {
     key: keyof LogStat;
     direction: "asc" | "desc";
   } | null>(null);
-
-  const user = useAuth();
 
   useEffect(() => {
     async function loadStats() {
@@ -122,9 +119,6 @@ export default function StatsTable() {
           {/* Radial Gradient to prevent sharp edges */}
           <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
         </div>
-      </div>
-      <div className="absolute top-4 right-4 z-50">
-        <UserProfileDropdown user={user} />
       </div>
 
       <div className="mb-4 flex flex-wrap gap-3 justify-center sm:justify-center md:justify-start ml-10">
