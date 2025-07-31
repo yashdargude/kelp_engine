@@ -164,7 +164,7 @@ setup_frontend() {
     if [ ! -f ".env.local" ]; then
         print_warning "Creating .env.local file for frontend..."
         cat > .env.local << EOF
-NEXT_PUBLIC_API_BASE_URL=http://localhost:3001
+NEXT_PUBLIC_API_BASE_URL=http://localhost:3000
 EOF
         print_success ".env.local file created"
     else
