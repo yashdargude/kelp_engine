@@ -12,6 +12,7 @@ const eventSearchRoutes = require("./routes/eventSearchRoutes");
 const insightsRoutes = require("./routes/insightsRoutes");
 const temporalGapRoutes = require("./routes/temporalGapRoutes");
 const eventInfluenceRoutes = require("./routes/eventInfluenceRoutes");
+const tableDataRoutes = require("./routes/tableDataRoutes");
 const cors = require("cors");
 const app = express();
 app.use(express.json());
@@ -32,6 +33,7 @@ app.use("/api", eventSearchRoutes);
 app.use("/api", insightsRoutes);
 app.use("/api", temporalGapRoutes);
 app.use("/api", eventInfluenceRoutes);
+app.use("/api", tableDataRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
