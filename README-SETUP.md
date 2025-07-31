@@ -177,7 +177,7 @@ kelp_engine_2/
 
 ```
 DATABASE_URL=postgresql://localhost:5432/kelp_engine
-PORT=3001
+PORT=3000
 ```
 
 ### Frontend (.env.local):
