@@ -135,7 +135,7 @@ setup_backend() {
         print_warning "Creating .env file for backend..."
         cat > .env << EOF
 DATABASE_URL=postgresql://localhost:5432/kelp_engine
-PORT=3001
+PORT=3000
 EOF
         print_success ".env file created"
     else
