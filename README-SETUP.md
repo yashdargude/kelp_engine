@@ -4,10 +4,12 @@ This guide will help you set up and run the Kelp Engine 2 project, which consist
 
 ## 🚀 Quick Start (Recommended)
 
-Use the automated setup script:
+**Use the automated setup script:**
+
+**run this shell script and it will automatically start the backend , create database "kelp_engine" -> then creates table "events" -> create sql design -> setup frontend and start the frontend**
 
 ```bash
-./start-kelp-engine.sh
+ ./z_setup_kelp_engine.sh
 ```
 
 This script will:
